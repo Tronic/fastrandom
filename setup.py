@@ -31,6 +31,7 @@ setup_kwargs = {
         "A shell tool to generate random bytes extremely fast e.g. for SSD scrubbing."
     ),
     "long_description": long_description,
+    "long_description_content_type": 'text/markdown',
     "packages": find_packages(),
     "platforms": "any",
     "python_requires": ">=3.8",
