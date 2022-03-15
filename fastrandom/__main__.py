@@ -5,6 +5,7 @@ from secrets import token_bytes
 from threading import Thread
 
 # Behold the insane namespacing of the cryptography module
+from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, modes
 from cryptography.hazmat.primitives.ciphers.algorithms import AES, ChaCha20
 
@@ -16,7 +17,7 @@ error = None
 def gencrypto(chacha=False):
     global count, error, run
     key, iv = token_bytes(32), token_bytes(16)
-    cipher = Cipher(ChaCha20(key, iv), None) if chacha else Cipher(AES(key), modes.CTR(iv))
+    cipher = Cipher(ChaCha20(key, iv), None) if chacha else Cipher(AES(key), modes.CTR(iv), backend=default_backend())
     encryptor = cipher.encryptor()
     buf = bytearray(BS + 15)
     while run:
