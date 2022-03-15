@@ -17,7 +17,8 @@ error = None
 def gencrypto(chacha=False):
     global count, error, run
     key, iv = token_bytes(32), token_bytes(16)
-    cipher = Cipher(ChaCha20(key, iv), None, backend=default_backend()) if chacha else Cipher(AES(key), modes.CTR(iv), backend=default_backend())
+    be = default_backend()
+    cipher = Cipher(ChaCha20(key, iv), None, be) if chacha else Cipher(AES(key), modes.CTR(iv), be)
     encryptor = cipher.encryptor()
     buf = bytearray(BS + 15)
     while run:
