@@ -1,3 +1,7 @@
+# ARCHIVED
+
+There is a new similar tool [RandQuik](https://github.com/LeoVasanko/RandQuik) that performs even faster and that produces repeatable streams as well. Please use that instead.
+
 # FastRandom
 
 A shell tool to generate random bytes extremely fast. Uses multiple CPU cores and both AES-NI and ChaCha20 to facilitate even higher utilisation of processing capacity. The output may be used for scrubbing disks, even the fastest NVME SSDs, or for any other purpose where large amounts of irreproducible random bytes are needed.
